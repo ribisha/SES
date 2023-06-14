@@ -5,12 +5,13 @@ from .form import TeacherForm
 
 def teacher(request):
     if request.method == 'POST':
-        form = TeacherForm(request.POST,request.FILES)
+        form = TeacherForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponsePermanentRedirect('/')
         else:
-            return render(request,'teacher.html',{'form':form})
+            return render(request, 'teacher.html', {'form':form})
     else:
         form = TeacherForm()
-        return render(request,'teacher.html',{'form':form})
+        return render(request,'teacher.html', {'form':form})
+
